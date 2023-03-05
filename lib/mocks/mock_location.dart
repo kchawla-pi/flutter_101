@@ -2,7 +2,7 @@ import 'package:flutter_101/models/location.dart';
 import 'package:flutter_101/models/location_fact.dart';
 
 mixin MockLocation implements Location {
-  static Location FetchAny() {
+  static Location fetchAny() {
     return Location(
         name: 'Arashiyama Bamboo Grove, Japan',
         url:
