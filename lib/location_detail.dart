@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_101/mocks/mock_location.dart';
 import 'package:flutter_101/models/location.dart';
 import 'package:flutter_101/styles.dart';
 
 class LocationDetail extends StatelessWidget {
-  final Location location;
+  final int locationID;
 
-  const LocationDetail(this.location, {super.key});
+  const LocationDetail(this.locationID, {super.key});
 
   @override
   Widget build(BuildContext context) {
+    var location = MockLocation.fetch(this.locationID);
     return Scaffold(
         appBar: AppBar(title: Text(location.name, style: Styles.navBarTitle)),
         body: Column(
@@ -23,6 +25,7 @@ class LocationDetail extends StatelessWidget {
     result.addAll(_renderFacts(context, location));
     return result;
   }
+
   List<Widget> _renderFacts(BuildContext context, Location location) {
     var result = List<Widget>.empty(growable: true);
     for (int i = 0; i < location.facts.length; i++) {
