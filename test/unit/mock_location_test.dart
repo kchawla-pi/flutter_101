@@ -2,17 +2,16 @@ import 'package:test/test.dart';
 import 'package:flutter_101/mocks/mock_location.dart';
 
 void main() {
-  test('test fetchAny', () {
-    final mockLocation = MockLocation.fetchAny();
+  test('test fetchAny', () async {
+    final mockLocation = MockLocation.fetchAll().first;
     expect(mockLocation, isNotNull);
     expect(mockLocation.name, isNotEmpty);
   });
 
   test('test fetchAll', () {
-    final mockLocation = MockLocation.fetchAll();
-    expect(mockLocation.length, greaterThan(0));
-    expect(mockLocation, isNotNull);
-    expect(mockLocation[0].name, isNotEmpty);
+    final mockLocations = MockLocation.fetchAll();
+    expect(mockLocations.length, greaterThan(0));
+    expect(mockLocations[0].name, isNotEmpty);
   });
 
   test('test fetch', () {
